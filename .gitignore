@@ -1,0 +1,15 @@
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.json
+*.txt
+*.log
+*.err
+*.out
+*.dat
+*.version
+*.ipynb_checkpoints
+.obsidian
+src/output/
+rough/
