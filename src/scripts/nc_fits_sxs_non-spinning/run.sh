@@ -1,6 +1,17 @@
 #!/bin/bash
+config_template="nc_ringdown/src/scripts/nc_fits_sxs_non-spinning/config_SXS.ini"
+output_dir="nc_ringdown/src/scripts/nc_fits_sxs_non-spinning/"
+csv_file="nc_ringdown/src/data/SXS_Parameters_non-spinning.csv"
 
-for sxs_id in {0180,0007,0169,0030,0167,0295,0056,0296,0297,0298,0299,0063,0300,0301,0185,0303}; do
-    sed "s/{sxs_id}/$sxs_id/g" nc_ringdown/src/scripts/nc_fits_sxs_non-spinning/config_SXS.ini > nc_ringdown/src/scripts/nc_fits_sxs_non-spinning/config_SXS_$sxs_id.ini
-    bayRing --config-file nc_ringdown/src/scripts/nc_fits_sxs_non-spinning/config_SXS_$sxs_id.ini
+awk -F, 'NR>1 && $34=="SXS" {print $33}' "$csv_file" | while read sxs_id; do
+    echo "Starting runs for SXS $sxs_id"
+    for seed in 1 2 3; do
+        config_file="${output_dir}config_SXS_${sxs_id}_${seed}.ini"
+        sed -e "s/{sxs_id}/$sxs_id/g" -e "s/{seed}/$seed/g" "$config_template" > "$config_file"
+        
+        echo "Running SXS $sxs_id with seed $seed"
+        bayRing --config-file "$config_file" &
+    done
+    wait
+    echo "Finished runs for SXS $sxs_id"
 done
