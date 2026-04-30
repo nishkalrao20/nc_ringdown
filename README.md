@@ -7,6 +7,10 @@ Nishkal Rao <sup>1</sup>, Gregorio Carullo <sup>2</sup>
 ## Introduction
 We present numerically-informed closed-form expressions for the dominant $(\ell,m)=(2,2)$ waveform harmonic of the post-merger emission from mergers of non-spinning binary black holes with comparable masses on highly eccentric orbits. Using 233 non-spinning eccentric simulations from the RIT catalog, we construct time-dependent complex quasinormal mode amplitudes via a Bayesian procedure. We build multivariate polynomial models, represented as functions of the symmetric mass ratio $\nu$ and two gauge-invariant merger parameters: the mass-rescaled effective energy $\hat{E}_{\mathrm{eff}}^{\mathrm{mrg}}$ and the angular momentum $j_{\mathrm{mrg}}$. We further validate the post-merger non-circular waveform model by comparing it against simulations from the SXS catalog. Our models achieve mismatches around $\lesssim10^{-3}$, including for near-extreme eccentricities. The model can be directly combined with effective-one-body and phenomenological inspiral waveforms to produce accurate inspiral-merger-ringdown waveforms, essential for parameter estimation of both astrophysical and fundamental physics properties of the signals' sources.
 
+## Paper
+[Phy. Rev. D](https://doi.org/10.1103/tflq-2xsd)
+[arXiv:2510.17787](https://arxiv.org/abs/2510.17787)
+
 ### Usage
 ![Methodology](docs/methodology.jpg)
 We have the sequential steps to construct the post-merger waveform model as follows:
@@ -17,6 +21,8 @@ We have the sequential steps to construct the post-merger waveform model as foll
 We present the global fit coefficients in the file: ['order_fits_nu_emrg_bmrg_3.csv'](src/data/bayesian_fit_coefficients/order_fits_nu_emrg_bmrg_3.csv) in the repository. The global fit coefficients in the ['bayesian_fit_coefficients'](src/data/bayesian_fit_coefficients) directory are represented as multivariate polynomials in $\nu$, $\hat{E}_{\mathrm{eff}}^{\mathrm{mrg}}$, $\hat{b}_{\mathrm{mrg}}$ and $j_{\mathrm{mrg}}$. 
 
 To reproduce the plots in the paper, we use the notebooks in [notebooks](notebooks) directory. The notebook [`rit_non-spinning.ipynb`](notebooks/rit_non-spinning.ipynb) contains the global fit and mismatch plots. The specific case waveforms are plotted in [`rit_waveform.ipynb`](notebooks/rit_waveform.ipynb). The notebook [`waveforms.ipynb`](notebooks/waveforms.ipynb) contains the global fit waveforms.
+
+For sample configs, check the directory: ['tests'](src/tests).
 
 To use the template, use the following configuration in ['pyRing`](https://lscsoft.docs.ligo.org/pyring/):
 ```python
@@ -35,8 +41,9 @@ fits-file         = nc_ringdown/src/data/bayesian_fit_coefficients/order_fits_nu
 
 [Model]
 template          = TEOBPM
-TEOB-NR-fit       = 0       # specifies that the global fit is used for the post-merger. Use 1 to use the local fit for the post-merger, and specify the coefficient priors
-TEOB-template     = nc      # specifies that the non-circular template is used for the post-merger
+TEOB-template     = RatExp      # specifies that the non-circular RatExp template is used for the post-merger
+TEOB-global-fit   = 1           # specifies that the global fits are used for the post-merger template
+TEOB-merger-data  = 1           # specifies that the merger parameters are extracted from the NR data and used for the global fits, instead of QC fits
 
 [Inference]
 nlive             = 128
