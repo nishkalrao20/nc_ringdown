@@ -59,4 +59,22 @@ seed              = 1
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 United States License](http://creativecommons.org/licenses/by-sa/3.0/us/).
 
+We encourage use of these data in derivative works. If you use the material provided here, please cite the paper using the reference:
+
+```
+@article{Rao:2026lmz,
+    author = "Rao, Nishkal and Carullo, Gregorio",
+    title = "{Highly eccentric non-spinning binary black hole mergers: quadrupolar post-merger waveforms}",
+    eprint = "2604.15431",
+    archivePrefix = "arXiv",
+    primaryClass = "gr-qc",
+    reportNumber = "LIGO Document Number P2600148",
+    month = "4",
+    year = "2026"
+}
+```
+
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 United States License](http://creativecommons.org/licenses/by-sa/3.0/us/).
+
 We encourage use of these data in derivative works. 
