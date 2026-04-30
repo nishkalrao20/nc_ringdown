@@ -8,8 +8,7 @@ Nishkal Rao <sup>1</sup>, Gregorio Carullo <sup>2</sup>
 We present numerically-informed closed-form expressions for the dominant $(\ell,m)=(2,2)$ waveform harmonic of the post-merger emission from mergers of non-spinning binary black holes with comparable masses on highly eccentric orbits. Using 233 non-spinning eccentric simulations from the RIT catalog, we construct time-dependent complex quasinormal mode amplitudes via a Bayesian procedure. We build multivariate polynomial models, represented as functions of the symmetric mass ratio $\nu$ and two gauge-invariant merger parameters: the mass-rescaled effective energy $\hat{E}_{\mathrm{eff}}^{\mathrm{mrg}}$ and the angular momentum $j_{\mathrm{mrg}}$. We further validate the post-merger non-circular waveform model by comparing it against simulations from the SXS catalog. Our models achieve mismatches around $\lesssim10^{-3}$, including for near-extreme eccentricities. The model can be directly combined with effective-one-body and phenomenological inspiral waveforms to produce accurate inspiral-merger-ringdown waveforms, essential for parameter estimation of both astrophysical and fundamental physics properties of the signals' sources.
 
 ## Paper
-[Phy. Rev. D](https://doi.org/10.1103/tflq-2xsd)
-[arXiv:2510.17787](https://arxiv.org/abs/2510.17787)
+[arXiv:2604.15431](https://arxiv.org/abs/2604.15431)
 
 ### Usage
 ![Methodology](docs/methodology.jpg)
